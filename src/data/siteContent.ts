@@ -46,7 +46,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g2',
     type: 'video',
-    source: '/media/videos/dj-stage-mic.mov',
+    source: '/media/videos/dj-stage-mic.mp4',
     poster: '/media/posters/IMG_7530.jpg',
     alt: 'DJ Biggs on stage with mic in hand',
     eventType: 'Nightlife',
@@ -55,7 +55,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g3',
     type: 'video',
-    source: '/media/videos/crowd-dance-01.mov',
+    source: '/media/videos/crowd-dance-01.mp4',
     poster: '/media/posters/IMG_1178.jpg',
     alt: 'Crowd dancing at a live DJ set',
     eventType: 'Private Celebration',
@@ -73,7 +73,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g5',
     type: 'video',
-    source: '/media/videos/dj-crowd-selfie.mov',
+    source: '/media/videos/dj-crowd-selfie.mp4',
     poster: '/media/posters/IMG_7089.jpg',
     alt: 'DJ Biggs with the crowd behind the booth',
     eventType: 'Birthday',
@@ -82,7 +82,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g6',
     type: 'video',
-    source: '/media/videos/crowd-dance-04.mov',
+    source: '/media/videos/crowd-dance-04.mp4',
     poster: '/media/posters/IMG_1185.jpg',
     alt: 'Guests dancing and celebrating on the floor',
     eventType: 'Private Party',
