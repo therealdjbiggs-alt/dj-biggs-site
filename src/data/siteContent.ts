@@ -91,7 +91,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g7',
     type: 'video',
-    source: '/media/videos/dj-booth-02.mov',
+    source: '/media/videos/dj-booth-02.mp4',
     poster: '/media/photos/setup-booth.jpg',
     alt: 'Live booth view into the room',
     eventType: 'Nightlife',
@@ -109,7 +109,7 @@ export const GALLERY_MEDIA: GalleryMediaItem[] = [
   {
     id: 'g9',
     type: 'video',
-    source: '/media/videos/crowd-celebration.mov',
+    source: '/media/videos/crowd-celebration.mp4',
     poster: '/media/photos/crowd-01.jpg',
     alt: 'Celebration energy on the dance floor',
     eventType: 'Wedding',
