@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07070a;
+  --color-charcoal: #101018;
+  --color-navy: #111024;
+  --color-soft-white: #f7f5fa;
+  --color-muted: #b9b4c7;
+  --color-neon-pink: #ff2e93;
+  --color-electric: #8b5cf6;
+  --color-cyan: #24e5ff;
+  --color-sunset: #ff7a30;
+  --color-gold: #ffc857;
+
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-glow-pink: 0 0 40px rgba(255, 46, 147, 0.25);
+  --shadow-glow-cyan: 0 0 40px rgba(36, 229, 255, 0.2);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-ink text-soft-white font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(255, 46, 147, 0.35);
+    color: #f7f5fa;
+  }
+
+  :focus-visible {
+    outline: 2px solid #24e5ff;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-neon {
+    background: linear-gradient(120deg, #ff2e93 0%, #8b5cf6 45%, #ff7a30 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-book {
+    background: linear-gradient(120deg, #ff2e93 0%, #8b5cf6 50%, #ff7a30 100%);
+  }
+
+  .bg-miami-sunset {
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(255, 46, 147, 0.35), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 80% 70%, rgba(255, 122, 48, 0.28), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 30%, rgba(139, 92, 246, 0.3), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 70% 20%, rgba(36, 229, 255, 0.18), transparent 50%),
+      linear-gradient(180deg, #07070a 0%, #111024 45%, #101018 100%);
+  }
+
+  .glass-nav {
+    background: rgba(7, 7, 10, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-card {
+    background: rgba(16, 16, 24, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .neon-edge {
+    box-shadow:
+      0 0 0 1px rgba(255, 46, 147, 0.2),
+      0 0 24px rgba(139, 92, 246, 0.12);
+  }
+
+  .deco-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 200, 87, 0.5),
+      rgba(36, 229, 255, 0.4),
+      rgba(255, 46, 147, 0.5),
+      transparent
+    );
+  }
+
+  .palm-silhouette {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cpath d='M100 180 V90 M100 100 C70 60 40 50 20 45 M100 95 C130 55 160 50 180 48 M100 110 C60 90 35 100 15 110 M100 110 C140 90 165 105 185 115' stroke='%23FF2E93' stroke-opacity='0.12' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: min(40vw, 280px);
+  }
+
+  /* Pink glow only — no white plate behind the mark */
+  .logo-neon-glow {
+    filter: drop-shadow(0 0 8px rgba(255, 46, 147, 0.55))
+      drop-shadow(0 0 20px rgba(255, 46, 147, 0.35))
+      drop-shadow(0 6px 18px rgba(139, 92, 246, 0.25));
+  }
+
+  /* Soft watermark — CSS fallback when music is off */
+  .section-logo-pulse {
+    opacity: 0.13;
+    filter: drop-shadow(0 0 16px rgba(255, 46, 147, 0.34))
+      drop-shadow(0 0 36px rgba(139, 92, 246, 0.2));
+    animation: section-logo-pulse 2s ease-in-out infinite;
+  }
+
+  .section-logo-live {
+    will-change: opacity, transform, filter;
+    transition: none;
+  }
+
+  @keyframes section-logo-pulse {
+    0%,
+    100% {
+      opacity: 0.1;
+      transform: scale(1);
+      filter: drop-shadow(0 0 14px rgba(255, 46, 147, 0.28))
+        drop-shadow(0 0 32px rgba(139, 92, 246, 0.16));
+    }
+    50% {
+      opacity: 0.24;
+      transform: scale(1.035);
+      filter: drop-shadow(0 0 30px rgba(255, 46, 147, 0.58))
+        drop-shadow(0 0 60px rgba(139, 92, 246, 0.34));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-logo-pulse {
+      animation: none;
+      opacity: 0.14;
+      transform: none;
+    }
+  }
+
+  select option {
+    background-color: #101018;
+    color: #f7f5fa;
+  }
+
+  .policy-prose h2 {
+    @apply font-display text-lg font-bold text-soft-white sm:text-xl;
+  }
+
+  .policy-prose p,
+  .policy-prose li {
+    @apply text-muted;
+  }
+
+  .policy-prose ul,
+  .policy-prose ol {
+    @apply mt-3 list-outside space-y-2 pl-5;
+  }
+
+  .policy-prose ul {
+    list-style-type: disc;
+  }
+
+  .policy-prose ol {
+    list-style-type: decimal;
+  }
+
+  .policy-prose a {
+    @apply text-cyan transition hover:text-soft-white;
+  }
+
+  .policy-prose strong {
+    @apply font-semibold text-soft-white;
+  }
+
+  .policy-prose section + section {
+    @apply pt-2;
+  }
+}
